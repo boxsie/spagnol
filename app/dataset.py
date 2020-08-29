@@ -23,12 +23,12 @@ class Dataset(object):
             self.conjugations = self.load_from_json(self.get_dataset_path())
         else:
             print('Dataset does not exits, creating a new one...')
-            self.conjugations = self.create_dataset(DATASET_FILENAME, DEFUALT_VERBS_PAGE)
+            self.conjugations = self.create_dataset(DEFUALT_VERBS_PAGE)
 
         print('Initialising dataset complete')
 
 
-    def create_dataset(self, out_filename, verb_url):
+    def create_dataset(self, verb_url):
         print('Creating new verb dataset...')
         verbs = self.scraper.get_verb_list(verb_url, page_count=6)
 
@@ -85,5 +85,5 @@ class Dataset(object):
 
 
     def get_verb_conjugation(self, verb, tense, pronoun):
-            tenses = self.get_verb_tense(verb, tense)
-            return next(c for c in tenses if c['pronoun'] == pronoun)
+        tenses = self.get_verb_tense(verb, tense)
+        return next(c for c in tenses if c['pronoun'] == pronoun)

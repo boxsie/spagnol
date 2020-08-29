@@ -21,7 +21,5 @@ if __name__ == "__main__":
     print('Getting verb pedir preterite ellos conjugation...')
     pretty_print_json(dataset.get_verb_conjugation(verb='pedir', tense='preterite', pronoun='ellos'))
 
-    print('Getting 3 random verbs...')
-    for _ in range(3):
-        pretty_print_json(dataset.get_random_verb())
-
+    print('Getting a random verb...')
+    pretty_print_json(dataset.get_random_verb())

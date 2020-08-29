@@ -6,6 +6,7 @@ from app.scraper import Scraper
 
 DATASET_FILENAME = 'conjugations.json'
 DEFUALT_VERBS_PAGE = 'https://www.linguasorb.com/spanish/verbs/most-common-verbs/'
+DEFUALT_VERBS_PAGE_COUNT = 10
 
 class Dataset(object):
     def __init__(self, dataset_path):
@@ -30,7 +31,7 @@ class Dataset(object):
 
     def create_dataset(self, verb_url):
         print('Creating new verb dataset...')
-        verbs = self.scraper.get_verb_list(verb_url, page_count=6)
+        verbs = self.scraper.get_verb_list(verb_url, page_count=DEFUALT_VERBS_PAGE_COUNT)
 
         conj = []
         for v in verbs:
